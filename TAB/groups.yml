@@ -1,0 +1,42 @@
+owner:
+  tabprefix: '%afk%&3[&9Owner&3] '
+  tagprefix: '&3[&9Owner&3]%rel_townyadvanced_color% '
+dev:
+  tabprefix: '%afk%&7[&#ecabff&LDev&7] &#bae6ff'
+  tagprefix: '&7[&#ecabff&LDev&7]%rel_townyadvanced_color% '
+assistantdev:
+  tabprefix: '%afk%&7[&c&lManager&7] &c'
+  tagprefix: '&7[&c&lManager&7]%rel_townyadvanced_color% '
+admin:
+  tabprefix: '%afk%&7[&4&LAdmin&7] &4'
+  tagprefix: '&7[&4&LAdmin&7]%rel_townyadvanced_color% '
+mod:
+  tabprefix: '%afk%&7[&2&LMod&7] &2'
+  tagprefix: '&7[&c&LMod&7]%rel_townyadvanced_color% '
+adminoffduty:
+  tabprefix: '%afk%&7[&4&l&mAdmin&7] &4'
+  tagprefix: '&7[&4&l&mAdmin&7]%rel_townyadvanced_color% '
+modoffduty:
+  tabprefix: '%afk%&7[&2&L&mMod&7] &2'
+  tagprefix: '&7[&c&L&mMod&7]%rel_townyadvanced_color% '
+helper:
+  tabprefix: '%afk%&7[&e&lHelper&7] &e'
+  tagprefix: '&7[&c&lHelper&7]%rel_townyadvanced_color% '
+youtuber:
+  tabprefix: '%afk%&c&l[YT]&r&b '
+  tagprefix: '&c&l[YT]&r&b '
+premium:
+  tabprefix: '%afk%&D'
+  tagprefix: '&5&L[&D&LP&5&L]%rel_townyadvanced_color% '
+per-world:
+  world1:
+    Owner:
+      tabprefix: '&0&l[&a&lOwner&0&l] &a'
+      tagprefix: '&2&lOwner &a'
+_DEFAULT_:
+  tabprefix: '%afk%%vault-prefix%'
+  tagprefix: '%vault-prefix%%rel_townyadvanced_color% '
+  tabsuffix: ''
+  tagsuffix: ''
+  customtabname: '%essentialsnick%'
+  customtagname: '%essentialsnick%'

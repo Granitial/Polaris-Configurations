@@ -1,0 +1,218 @@
+# -------------------------------------------------------------------------------
+# This file manages rules in chat (not commands) and includes rules from rules.txt.
+#
+# File by default contain examples that you can safely remove or change.
+#
+# For help, see notes in rules.txt file.
+# -------------------------------------------------------------------------------
+
+# -------- Basic grammar corrections
+match \bdis\b
+then replace this
+
+match \bearthpol\b
+then replace polaris
+
+match \btaxpoorpeople.com\b
+then console forward console tempban {player} 5d Doxxing
+then deny
+
+match \bgeofacts.xyz\b
+then console kill {player}
+then deny
+
+match \bgeo.colenia.xyz\b
+then console kill {player}
+then deny
+
+match \b@0xBit\b
+then deny
+
+match \b(n+(\W|\d|_)*e+(\W|\d|_)*w+(\W|\d|_)*e+(\W|\d|_)*e+(\W|\d|_)*a+(\W|\d|_)*r+(\W|\d|_)*r+(\W|\d|_)*t+(\W|\d|_)*h+(\W|\d|_)*)
+then deny
+
+match \bPvP Legacy\b
+then deny
+
+match \bpvplegacy\b
+then deny
+
+match \bfree my man\b
+then deny
+
+match \bEarthCraft\b
+then deny
+
+match \b#unmute\b
+then deny
+then console forward console tempmute {player} 5m Muted for #unmute campaign. Balanced, as all things should be.
+
+match \bp o r n h u b c o m\b
+then deny
+then console forward console tempban {player} 5d Probably a spam robot.
+
+match \bpornhub com\b
+then deny
+then console forward console tempban {player} 5d Probably a spam robot.
+
+match \bxvideos com\b
+then deny
+then console forward console tempban {player} 5d Probably a spam robot.
+
+match \bx videos\b
+then deny
+then console forward console tempban {player} 5d Probably a spam robot.
+
+match \bfag\b
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to be toxic but was denied.
+
+match \bfags\b
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to be toxic but was denied.
+
+match \bfaggot\b
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to be toxic but was denied.
+
+match \bfaggots\b
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to be toxic but was denied.
+
+match \bfuck you\b
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to be toxic but was denied.
+
+match \bfuck u\b
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to be toxic but was denied.
+
+match \bn i g g e r\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+
+match \bn(i|!|1)(g|6)(g|6)(3|e)r\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+match \b-. .. --. --. .-\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+match \b-. .. --. --. . .-.\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+match \bn(i|!|1)(g|6)(g|6)(3|e)r\b
+then deny
+then console forward console tempmute {player} 2d 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+match \bw(i|!|1)(g|6)(g|6)(3|e)r\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+match \bw(i|!|1)(g|6)(g|6)a\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+match \bでニガー\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+
+match \bwigga\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+match \bjndi:ldap:\b
+then deny
+then console forward console ban {player} 2.2 - Technical errors and server exploits [Log4J RCE Attempt] [AutoBan]
+
+
+match \bserver dead\b
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to server hate but was denied.
+
+match \b(dead|dying|ded) server\b
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to server hate but was denied.
+
+match server (is (dead|dying|ded))
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to server hate but was denied.
+
+match (dead|dying|ded) server
+then deny
+then notify chatcontrol.notify.rulesalert &b{player} &7tried to server hate but was denied.
+
+match \bn(i|!|1)(g|6)(g|6)(a|4)\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+match \bniggers\b
+then deny
+then console forward console warn {player} 1.2 - Unwanted Behaviors [use of racist and/or derogatory terms.]
+then notify chatcontrol.notify.rulesalert &8[&71.2 Violation&8] &7{player}: &f{message}
+
+# -------- Prevent asking for a rank
+match (can|may|would you like if) i (have|be|become|get|has) (op|admin|mod|builder)
+then warn &cCurrently, we are not looking for new staff.
+then deny
+
+match (do|are) you (need|wish|looking for) (any|some|one|good) (op|ops|operators|admins|mods|builders|new people|ateam)
+then warn &cCurrently, we are not looking for new staff.
+then deny
+
+# -------- Prevent people saying bad things about your server
+# Notice the id, it can be a string and can used multiple times.
+match this server (is (bad|crappy|shitty|shit|ass)|suck)
+id ServerHate
+then rewrite I can't behave properly due to brain damage!
+then notify chatcontrol.notify.rulesalert &8[&7ID {ruleID}&8] &7{player}: &f{message}
+then console kick {player} &cYour rating will be processed by our staff soon. \nThanks and welcome back!
+
+match ((admin|op|ateam|server|owner|pmk|0xBit) (is|are)) + *(dick|cock|duck|noob|kid)
+id ServerHate
+then console kick {player} &cI don't think so.
+then deny
+then log
+
+# -------- Example usage of unicode characters - making smileys
+match :\)
+then replace ☺
+
+match :-\)
+then replace ☺
+
+match :\(
+then replace ☹
+
+match :-\(
+then replace ☹
+
+match ;\)
+then replace ㋡
+
+match ;-\)
+then replace ㋡
+
+match \:star\:
+then replace ★
+
+match <3\b
+then replace ❤
+
+match \:skull\:
+then replace ☠
+
+match briish
+then replace british

@@ -1,0 +1,360 @@
+#############################################################################################
+# This file contains custom permission sets which will be assigned to your players          #
+# depending on their current status. This file uses YAML formatting. Do not include tabs    #
+# and be very careful to align the spacing preceding the - symbols. Improperly editing this #
+# file will prevent Towny from loading correctly.                                           #
+#                                                                                           #
+# This is all managed by towny and pushed directly to CraftBukkit's SuperPerms.             #
+# These will be give in addition to any you manually assign in your specific permission     #
+# plugin. Note: You do not need to assign any Towny permission nodes to your players in     #
+# your server's permission plugin, ie: LuckPerms.                                           #
+#                                                                                           #
+# You may assign any Permission nodes here, including those from other plugins.             #
+#                                                                                           #
+# You may also create any custom ranks you require. Creating ranks can be done using the    #
+# /ta townyperms townrank addrank [name] or by carefully editing this file.                 #
+# You can add permission to a rank/group using the                                          #
+# /ta townyperms group [name] addperm [node] command.                                       #
+#                                                                                           #
+# You may change the names of any of the ranks except: nomad, default, mayor, king, ranks,  #
+# peaceful.                                                                                 #
+#                                                                                           #
+# If you want to, you can negate permissions nodes from nodes by doing the following:       #
+# Ex:                                                                                       #
+#    - towny.command.plot.*                                                                 #
+#    - -towny.command.plot.set.jail                                                         #
+# In this example the user is given full rights to all of the /plot command nodes,          #
+# but has had their ability to set a plot to a Jail plot type disabled.                     #
+#############################################################################################
+  
+  
+# The 'nomad' permissions are given to all players in all Towny worlds, townless and players who are part of a town.
+nomad:
+- towny.command.nation.online
+- towny.command.towny.map
+- towny.command.towny.prices
+- towny.command.towny.tree
+- towny.command.towny.time
+- towny.command.towny.universe
+- towny.command.towny.version
+- towny.command.towny.war
+- towny.command.town.online
+- towny.command.town.here
+- towny.command.town.new
+- towny.command.town.join
+- towny.command.town.list.*
+- towny.command.town.list.open
+- towny.command.town.list.name
+- towny.command.town.list.townblocks
+- towny.command.town.list.online
+- towny.command.town.list.ruined
+- towny.command.town.list.residents
+- -towny.command.town.list.balance
+- -towny.command.town.list.bankrupt
+- towny.command.town.reslist
+- towny.command.plot.perm
+- towny.command.plot.perm.gui
+- towny.command.plot.group.*
+- towny.command.nation.list.*
+- towny.command.nation.townlist
+- towny.command.nation.allylist
+- towny.command.nation.enemylist
+- towny.town.resident
+- towny.town.spawn.public
+- towny.command.towny.war.hud
+- towny.wild.*
+- townycamps.campfire
+- towny.command.town.reclaim
+- towny.command.plot.group.trust
+- towny.command.plot.group.perm
+- towny.command.town.ranklist
+- towny.command.nation.ranklist
+- towny.chat.general
+- towny.chat.join.general
+- towny.chat.leave.general
+- towny.chat.trade
+- towny.chat.join.trade
+- towny.chat.leave.trade
+- towny.chat.local
+- townymenus.command.townymenu
+  
+# This section of permissions covers players who are members of a town.
+towns:
+  
+  # 'default' is the permission set which is auto assigned to any normal town member.
+  default:
+  - towny.command.resident.*
+  - towny.command.plot.claim
+  - towny.command.plot.unclaim
+  - towny.command.plot.forsale
+  - towny.command.plot.notforsale
+  - towny.command.plot.toggle.*
+  - towny.command.plot.set.perm
+  - towny.command.plot.set.reset
+  - towny.command.town.online
+  - towny.command.town.leave
+  - towny.command.town.deposit
+  - towny.command.town.reclaim
+  - towny.town.spawn.town
+  - towny.chat.town
+  
+  # Mayors get these permissions in addition to the default set.
+  mayor:
+  - townyresources.command.towncollect
+  - towny.tax_exempt
+  - towny.command.town.here
+  - towny.command.town.withdraw
+  - towny.command.town.deposit
+  - towny.command.town.bankhistory
+  - towny.command.town.rank.*
+  - towny.command.town.list.*
+  - towny.command.town.list.open
+  - towny.command.town.list.name
+  - towny.command.town.list.townblocks
+  - towny.command.town.list.online
+  - towny.command.town.list.ruined
+  - towny.command.town.list.residents
+  - -towny.command.town.list.balance
+  - -towny.command.town.list.bankrupt
+  - towny.command.town.reslist
+  - towny.command.town.outlaw
+  - towny.command.town.outpost.list
+  - towny.command.town.set.*
+  - towny.command.town.set.board
+  - towny.command.town.buy
+  - towny.command.town.othertown
+  - towny.command.town.plots
+  - towny.command.town.say
+  - towny.command.town.toggle.*
+  - towny.command.town.mayor
+  - towny.command.town.delete
+  - towny.command.town.add
+  - towny.command.town.kick
+  - towny.command.town.claim.*
+  - towny.command.town.unclaim
+  - towny.command.town.online
+  - towny.command.town.invite.*
+  - towny.command.plot.*
+  - towny.claimed.owntown.*
+  - towny.command.nation.new
+  - towny.command.nation.join
+  - towny.command.nation.leave
+  - townycultures.set_town_culture
+  - towny.command.plot.perm.*
+  - siegewar.town.siege.*
+  - siegewar.command.siegewar.town.*
+  
+  # Ranks contain additional permissions residents will be
+  # granted if they are assigned that specific rank.
+  ranks:
+    comayor:
+    - towny.tax_exempt
+    - towny.command.town.claim.*
+    - towny.command.town.invite.add
+    - towny.command.plot.set.perm
+    - towny.command.plot.set.reset
+    - towny.command.plot.set.shop
+    - towny.command.plot.set.embassy
+    - towny.command.plot.set.arena
+    - towny.command.plot.set.wilds
+    - towny.command.plot.set.inn
+    - towny.command.plot.set.spleef
+    - towny.command.plot.*
+    - towny.command.town.withdraw
+    - towny.command.town.bankhistory
+    - towny.command.town.rank.*
+    - towny.command.town.set.board
+    - towny.command.town.set.homeblock
+    - towny.command.town.set.spawn
+    - towny.command.town.set.spawncost
+    - towny.command.town.set.outpost
+    - towny.command.town.set.perm
+    - towny.command.town.set.plottax
+    - towny.command.town.set.shoptax
+    - towny.command.town.set.embassytax
+    - towny.command.town.set.plotprice
+    - towny.command.town.set.shopprice
+    - towny.command.town.set.embassyprice
+    - towny.command.town.set.taxpercentcap
+    - towny.command.town.set.title
+    - towny.command.town.set.surname
+    - towny.command.town.toggle.public
+    - towny.command.town.toggle.*
+    - towny.command.town.mayor
+    - towny.command.town.claim.*
+    - towny.command.town.unclaim
+    - towny.command.town.plots
+    - towny.claimed.owntown.switch.*
+    - towny.claimed.owntown.*
+    - towny.command.town.rank.assistant
+    - siegewar.nation.siege.battle.points
+    - siegewar.town.siege.*
+    - siegewar.command.siegewar.town.*
+    - towny.command.plot.perm.*
+    - townyresources.command.towncollect
+  
+    # assistants are able to grant VIP and helper rank.
+    assistant:
+    - townyresources.command.nationcollect
+    - towny.claimed.townowned.switch.*
+    - towny.command.plot.set.perm
+    - towny.command.plot.set.reset
+    - towny.command.plot.set.shop
+    - towny.command.plot.set.embassy
+    - towny.command.plot.set.arena
+    - towny.command.plot.set.wilds
+    - towny.command.plot.set.inn
+    - towny.command.plot.set.spleef
+    - towny.command.plot.*
+    - towny.command.town.bankhistory
+    - towny.commnad.town.invite.add
+    - siegewar.nation.siege.battle.points
+    builder:
+    - towny.command.town.bankhistory
+    - towny.claimed.owntown.build.*
+    - towny.claimed.owntown.destroy.*
+    - towny.claimed.owntown.item_use.*
+    - siegewar.nation.siege.battle.points
+    helper:
+    - towny.claimed.townowned.switch.*
+    flight:
+    - townyflight.command.tfly
+  
+    # Sheriff rank is able to jail other town members.
+    sheriff:
+    - towny.command.town.jail
+    - towny.command.town.unjail
+    - towny.command.town.jail.list
+    - towny.outlaw.jailer
+  
+# This section of permissions covers players who are members of any town in a nation.
+nations:
+  
+  # All nation members get these permissions.
+  default:
+  - towny.command.nation.online
+  - towny.command.nation.deposit
+  - towny.command.nation.spawn
+  - towny.nation.spawn.nation
+  - towny.nation.spawn.ally
+  - towny.town.spawn.nation
+  - towny.town.spawn.ally
+  - towny.chat.nation
+  - towny.chat.alliance
+  
+  # Kings get these permissions in addition to the default set.
+  king:
+  - townyresources.command.nationcollect
+  - towny.command.nation.list
+  - towny.command.nation.list.residents
+  - towny.command.nation.list.towns
+  - towny.command.nation.list.open
+  - towny.command.nation.list.name
+  - towny.command.nation.list.townblocks
+  - towny.command.nation.list.online
+  - towny.command.nation.list.public
+  - towny.command.nation.new
+  - towny.command.nation.leave
+  - towny.command.nation.withdraw
+  - towny.command.nation.deposit
+  - towny.command.nation.deposit.other
+  - towny.command.nation.bankhistory
+  - towny.command.nation.rank
+  - towny.command.nation.rank.*
+  - towny.command.nation.king
+  - towny.command.nation.othernation
+  - towny.command.nation.say
+  - towny.command.nation.join
+  - towny.command.nation.set
+  - towny.command.nation.set.board
+  - towny.command.nation.set.spawncost
+  - towny.command.nation.set.spawn
+  - towny.command.nation.set.king
+  - towny.command.nation.set.capitol
+  - towny.command.nation.set.taxes
+  - towny.command.nation.set.name
+  - towny.command.nation.set.title
+  - towny.command.nation.set.surname
+  - towny.command.nation.set.tag
+  - towny.command.nation.toggle.*
+  - towny.command.nation.toggle.neutral
+  - towny.command.nation.toggle.open
+  - towny.command.nation.toggle.public
+  - towny.command.nation.invite.*
+  - towny.command.nation.invite.manage.*
+  - towny.command.nation.add
+  - towny.command.nation.invite.add
+  - towny.command.nation.invite.accept
+  - towny.command.nation.invite.deny
+  - towny.command.nation.invite.sent
+  - towny.command.nation.invite.received
+  - towny.command.nation.invite
+  - towny.command.nation.ally.*
+  - towny.command.nation.ally.manage.*
+  - towny.command.nation.ally.add
+  - towny.command.nation.ally.remove
+  - towny.command.nation.ally.accept
+  - towny.command.nation.ally.deny
+  - towny.command.nation.ally.sent
+  - towny.command.nation.ally.received
+  - towny.command.nation.ally
+  - towny.command.nation.enemy
+  - towny.command.nation.delete
+  - towny.command.nation.online
+  - towny.command.nation.add
+  - towny.command.nation.kick
+  - towny.command.nation.spawn
+  - towny.command.nation.townlist
+  - towny.command.nation.allylist
+  - towny.command.nation.enemylist
+  - towny.command.nation.deposit.other
+  - siegewar.nation.siege.*
+  - siegewar.command.siegewar.nation.*
+  ranks:
+    assistant:
+    - townyresources.command.nationcollect
+    - towny.command.nation.rank.helper
+    - towny.command.nation.invite.add
+    - towny.command.nation.ally.*
+    - towny.command.nation.enemy
+    - towny.command.nation.bankhistory
+    - towny.command.nation.deposit.other
+    - siegewar.command.siegewar.nation.*
+    - siegewar.nation.siege.*
+    helper:
+    - towny.command.nation.add
+    - towny.command.nation.bankhistory
+    private:
+    - siegewar.nation.siege.battle.points
+    - towny.nation.siege.pay.grade.100
+    sergeant:
+    - siegewar.nation.siege.battle.points
+    - towny.nation.siege.pay.grade.150
+    lieutenant:
+    - siegewar.nation.siege.battle.points
+    - towny.nation.siege.pay.grade.200
+    captain:
+    - siegewar.nation.siege.battle.points
+    - towny.nation.siege.pay.grade.250
+    major:
+    - siegewar.nation.siege.battle.points
+    - towny.nation.siege.pay.grade.300
+    colonel:
+    - siegewar.nation.siege.battle.points
+    - towny.nation.siege.pay.grade.400
+    flight:
+    - townyflight.nationtowns
+    general:
+    - siegewar.nation.siege.*
+    - towny.nation.siege.pay.grade.500
+    - towny.command.nation.rank.private
+    - towny.command.nation.rank.sergeant
+    - towny.command.nation.rank.lieutenant
+    - towny.command.nation.rank.captain
+    - towny.command.nation.rank.major
+    - towny.command.nation.rank.colonel
+    - towny.command.nation.bankhistory
+  
+# Nodes that are given to players who are in a peaceful/neutral town or nation.
+peaceful:
+- towny.peaceful

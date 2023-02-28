@@ -1,0 +1,382 @@
+#---------------------------------------------------------------------------------#
+#                          VTL ~ VillagerTradeLimiter                             #
+#                                By: PretzelJohn                                  #
+#---------------------------------------------------------------------------------#
+
+
+#-------------------------------- GLOBAL SETTINGS --------------------------------#
+# This helps me keep track of what server versions are being used. Please leave this set to true.
+bStats: true
+
+# Database connection settings
+database:
+  mysql: false
+  host: 127.0.0.1
+  port: 3306
+  database: villagertradelimiter
+  username: root
+  password: root
+  encoding: utf8
+  useSSL: false
+
+# Add world names for worlds that you want to have unaltered, vanilla villager trading in. Set to [] to disable this feature.
+DisableWorlds:
+- world_nether
+- world_the_end
+
+# Ignore Citizens NPCs, and/or Shopkeepers NPCs if true
+IgnoreCitizens: true
+IgnoreShopkeepers: true
+
+# Ignore interactions when the player is holding one of these item types (e.g. spawn_egg, name_tag)
+# Without disabling nametag, you cannot rename a villager with a profession. Do not remove name_tag if you want to retain vanilla behavior.
+# Ghast spawn egg is added to add compatibility with Safarinet plugin. If your server doesn't give ghast egg to noromal players you can ignore it.
+# Set to [] to disable this feature.
+IgnoreHeldItems:
+- name_tag
+- ghast_spawn_egg
+
+# Add world names for worlds that you want to completely disable ALL villager trading. Set to [] to disable this feature.
+DisableTrading:
+- world_nether
+- world_the_end
+
+# The maximum level of the "Hero of the Village" (HotV) effect that a player can have. This limits HotV price decreases.
+#   * Set to -1 to disable this feature and keep vanilla behavior.
+#   * Set to a number between 0 and 5 to set the maximum HotV effect level players can have
+# For more information, see https://minecraft.fandom.com/wiki/Hero_of_the_Village#Price_decrement
+MaxHeroLevel: -1
+
+# The maximum discount (%) you can get from trading/healing zombie villagers. This limits reputation-based price decreases.
+#   * Set to -1.0 to disable this feature and keep vanilla behavior
+#   * Set to a number between 0.0 and 1.0 to limit the maximum discount a player can get. (NOTE: 30% = 0.3)
+#   * Set to a number above 1.0 to increase the maximum discount a player can get. (NOTE: 250% = 2.5)
+MaxDiscount: 0.0
+
+# The maximum demand for all items. This limits demand-based price increases.
+#   * Set to -1 to disable this feature and keep vanilla behavior
+#   * Set to 0 or higher to set the maximum demand for all items
+# WARNING: The previous demand cannot be recovered if it was higher than the MaxDemand.
+# For more information, see https://minecraft.fandom.com/wiki/Trading#Economics
+MaxDemand: 3
+
+# The maximum number of times a player can make any trade before a villager is out of stock.
+#   * Set to -1 to disable this feature and keep vanilla behavior
+#   * Set to 0 or higher to change the maximum number of uses for all items
+# For more information, see https://minecraft.fandom.com/el/wiki/Trading#Java_Edition
+MaxUses: 6
+
+# The per-player, per-trade cooldown in real-world time.
+# After a player makes a trade <MaxUses> times, the trade will be disabled for the player until the cooldown is over.
+#   * Set to 0 to disable this feature and keep vanilla behavior
+#   * Set to a number and interval to add a per-player, per-trade cooldown for all trades (see below)
+# A valid cooldown follows the <Number><Interval> format, such as 7d or 30s. The valid intervals are:
+#   * s = seconds (e.g. 30s)
+#   * m = minutes (e.g. 10m)
+#   * h = hours   (e.g. 1h)
+#   * d = days    (e.g. 3d)
+#   * w = weeks   (e.g. 2w)
+Cooldown: 0
+
+# The per-villager, per-trade cooldown in real-world time.
+# This is the same as Cooldown, but applies to a villager's restocking function
+#   * Set to 0 to disable this feature and keep vanilla behavior
+#   * Set to a number and interval to add a per-villager, per-trade cooldown for all trades (see below)
+Restock: 0
+
+
+#-------------------------------- PER-ITEM SETTINGS --------------------------------#
+# Override the global settings for individual items. To disable, set like this --> Overrides: none
+# To enable, add items below!
+#   * Enchanted books must follow the format: enchantment_name_level (ex: mending_1)
+#   * All other items must follow the format: item_name (ex: stone_bricks)
+# For each item you add, you can disable the trade (set Disabled: true), or override MaxDiscount and/or MaxDemand.
+Overrides:
+  mending_1:
+    MaxDiscount: 0.0
+    MaxUses: 2
+    Cooldown: 12h
+  sharpness_5:
+    MaxDiscount: 0.0
+    MaxUses: 2
+    Cooldown: 24h
+  sharpness_4:
+    MaxDiscount: 0.0
+    MaxUses: 2
+    Cooldown: 24h
+  sharpness_3:
+    MaxDiscount: 0.0
+    MaxUses: 2
+    Cooldown: 12h
+  sharpness_2:
+    MaxDiscount: 0.0
+    MaxUses: 3
+    Cooldown: 12h
+  sharpness_1:
+    MaxDiscount: 0.0
+    MaxUses: 2
+    Cooldown: 12h
+  protection_4:
+    MaxDiscount: 0.0
+    MaxUses: 3
+    Cooldown: 12h
+  protection_3:
+    MaxDiscount: 0.0
+    MaxUses: 3
+    Cooldown: 12h
+  protection_2:
+    MaxDiscount: 0.0
+    MaxUses: 3
+    Cooldown: 12h
+  protection_1:
+    MaxDiscount: 0.0
+    MaxUses: 3
+    Cooldown: 12h
+  coal:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  iron_ingot:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  diamond:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  lava_bucket:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  raw_chicken:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  raw_mutton:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  raw_rabbit:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  raw_beef:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  raw_porkchop:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  dried_kelp_block:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  sweet_berries:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  glass_pane:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  rotten_flesh:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  gold_ingot:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  rabbit_foot:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  scute:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  glass_bottle:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  nether_wart:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  wheat:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  carrot:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  potato:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  melon:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  pumpkin:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  beetroot:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  string:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  raw_cod:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  tropical_fish:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  pufferfish:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  stick:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  flint:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  feather:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  tripwire_hook:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  leather:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  rabbit_hide:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  paper:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  ink_sac:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  clay_ball:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  stone:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  granite:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  andesite:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  diorite:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  nether_quartz:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  white_wool:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  gray_wool:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  black_wool:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  brown_wool:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  white_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  orange_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  magenta_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  light_blue_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  yellow_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  lime_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  pink_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  gray_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  light_gray_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  cyan_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  purple_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  blue_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  brown_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  green_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
+  red_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 6h
+  black_dye:
+    MaxDiscount: 0.0
+    MaxUses: 6
+    Cooldown: 12h
